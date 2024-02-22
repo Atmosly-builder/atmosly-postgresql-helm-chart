@@ -1,0 +1,50 @@
+{{- if .Values.backup_job.enabled }}
+---
+apiVersion: batch/v1
+kind: CronJob
+metadata:
+  name: postgres-backup
+spec:
+  schedule: {{ .Values.backup_job.cron_for_full_backup |  quote }}
+  concurrencyPolicy: Forbid
+  suspend: false
+  successfulJobsHistoryLimit: 3
+  failedJobsHistoryLimit: 1
+
+  jobTemplate:
+    spec:
+      template:
+        spec:
+          affinity: 
+            {{- toYaml .Values.backup_job.affinity | nindent 12 }}
+          restartPolicy: OnFailure
+          imagePullSecrets:
+          - name: regcred
+          serviceAccountName: sa-postgres-backup
+          containers:
+          - name: postgres-backup
+            image: amanravi12/postgres-backup:v10
+            imagePullPolicy: Always
+            env:
+            - name: POSTGRES_HOST
+              value: {{ .Release.Name }}-postgresql-primary.{{ .Release.Namespace }}.svc.cluster.local
+            - name: POSTGRES_PORT
+              value: "5432"
+            - name: POSTGRES_USER
+              value: "postgres"
+            # - name: PGPASSWORD
+            #   value: {{ .Values.backup.database_password }}
+            - name: PGPASSWORD
+              valueFrom:
+                secretKeyRef:
+                    name: {{ .Release.Name }}-postgresql
+                    key: postgres-password
+            - name: POSTGRES_BUCKET_URI
+              value: {{ .Values.backup_job.bucket_uri }}
+            - name: BUCKET_PROVIDER
+              value:  {{ .Values.backup_job.bucket_provider_type }}
+            - name: AWS_DEFAULT_REGION
+              value: {{ .Values.backup_job.aws_default_region }}
+            resources: 
+              {{- toYaml .Values.backup_job.resources | nindent 14 }}
+{{- end }}
