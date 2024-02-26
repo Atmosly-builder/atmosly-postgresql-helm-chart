@@ -52,8 +52,8 @@ spec:
       {{- if .Values.primary.hostAliases }}
       hostAliases: {{- include "common.tplvalues.render" (dict "value" .Values.primary.hostAliases "context" $) | nindent 8 }}
       {{- end }}
-      {{- if .Values.primary.affinity }}
-      affinity: {{- include "common.tplvalues.render" (dict "value" .Values.primary.affinity "context" $) | nindent 8 }}
+      {{- if .Values.global.affinity }}
+      affinity: {{- include "common.tplvalues.render" (dict "value" .Values.global.affinity "context" $) | nindent 8 }}
       {{- else }}
       affinity:
         podAffinity: {{- include "common.affinities.pods" (dict "type" .Values.primary.podAffinityPreset "component" "primary" "customLabels" $podLabels "context" $) | nindent 10 }}

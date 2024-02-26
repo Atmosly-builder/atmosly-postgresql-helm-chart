@@ -8,7 +8,7 @@ spec:
   template:
     spec:
       affinity: 
-        {{ .Values.restore_job.affinity | toYaml | nindent 8 }}
+        {{ .Values.global.affinity | toYaml | nindent 8 }}
       serviceAccountName: sa-postgres-restore
       containers:
           - name: postgres-restore

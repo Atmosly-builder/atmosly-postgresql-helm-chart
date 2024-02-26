@@ -50,8 +50,8 @@ spec:
       {{- if .Values.readReplicas.hostAliases }}
       hostAliases: {{- include "common.tplvalues.render" (dict "value" .Values.readReplicas.hostAliases "context" $) | nindent 8 }}
       {{- end }}
-      {{- if .Values.readReplicas.affinity }}
-      affinity: {{- include "common.tplvalues.render" (dict "value" .Values.readReplicas.affinity "context" $) | nindent 8 }}
+      {{- if .Values.global.affinity }}
+      affinity: {{- include "common.tplvalues.render" (dict "value" .Values.global.affinity "context" $) | nindent 8 }}
       {{- else }}
       affinity:
         podAffinity: {{- include "common.affinities.pods" (dict "type" .Values.readReplicas.podAffinityPreset "component" "read" "customLabels" $podLabels "context" $) | nindent 10 }}

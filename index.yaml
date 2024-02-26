@@ -1,3 +1,86 @@
 apiVersion: v1
-entries: {}
-generated: "2024-02-22T17:13:28.063928103+05:30"
+entries:
+  postgresql:
+  - annotations:
+      category: Database
+      images: |
+        - name: os-shell
+          image: docker.io/bitnami/os-shell:11-debian-11-r93
+        - name: postgres-exporter
+          image: docker.io/bitnami/postgres-exporter:0.15.0-debian-11-r5
+        - name: postgresql
+          image: docker.io/bitnami/postgresql:16.1.0-debian-11-r19
+      licenses: Apache-2.0
+    apiVersion: v2
+    appVersion: 16.1.0
+    created: "2024-02-26T13:06:17.295142296+05:30"
+    dependencies:
+    - name: common
+      repository: oci://registry-1.docker.io/bitnamicharts
+      tags:
+      - bitnami-common
+      version: 2.x.x
+    description: PostgreSQL (Postgres) is an open source object-relational database
+      known for reliability and data integrity. ACID-compliant, it supports foreign
+      keys, joins, views, triggers and stored procedures.
+    digest: ba5ff0654f9daf4e18eb7c06950616dbe03d1e0ef178b4cd2957addf8d86e5d9
+    home: https://bitnami.com
+    icon: https://bitnami.com/assets/stacks/postgresql/img/postgresql-stack-220x234.png
+    keywords:
+    - postgresql
+    - postgres
+    - database
+    - sql
+    - replication
+    - cluster
+    maintainers:
+    - name: VMware, Inc.
+      url: https://github.com/bitnami/charts
+    name: postgresql
+    sources:
+    - https://atmosly-builder.github.io/atmosly-postgresql-helm-chart/postgresql-13.3.0.tgz
+    urls:
+    - https://atmosly-builder.github.io/atmosly-postgresql-helm-chart/postgresql-13.3.1.tgz
+    version: 13.3.1
+  - annotations:
+      category: Database
+      images: |
+        - name: os-shell
+          image: docker.io/bitnami/os-shell:11-debian-11-r93
+        - name: postgres-exporter
+          image: docker.io/bitnami/postgres-exporter:0.15.0-debian-11-r5
+        - name: postgresql
+          image: docker.io/bitnami/postgresql:16.1.0-debian-11-r19
+      licenses: Apache-2.0
+    apiVersion: v2
+    appVersion: 16.1.0
+    created: "2024-02-26T13:06:17.163733604+05:30"
+    dependencies:
+    - name: common
+      repository: oci://registry-1.docker.io/bitnamicharts
+      tags:
+      - bitnami-common
+      version: 2.x.x
+    description: PostgreSQL (Postgres) is an open source object-relational database
+      known for reliability and data integrity. ACID-compliant, it supports foreign
+      keys, joins, views, triggers and stored procedures.
+    digest: c562c273a734a480f4977c54c626794f06d0efb9824ecbb9fa2d9c2e53364397
+    home: https://bitnami.com
+    icon: https://bitnami.com/assets/stacks/postgresql/img/postgresql-stack-220x234.png
+    keywords:
+    - postgresql
+    - postgres
+    - database
+    - sql
+    - replication
+    - cluster
+    maintainers:
+    - name: VMware, Inc.
+      url: https://github.com/bitnami/charts
+    name: postgresql
+    sources:
+    - https://atmosly-builder.github.io/atmosly-postgresql-helm-chart/
+    urls:
+    - https://atmosly-builder.github.io/atmosly-postgresql-helm-chart/postgresql-13.3.0.tgz
+    version: 13.3.0
+generated: "2024-02-26T13:06:17.157590944+05:30"

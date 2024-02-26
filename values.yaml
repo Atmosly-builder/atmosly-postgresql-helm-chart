@@ -5,6 +5,16 @@
 ## Please, note that this will override the parameters, including dependencies, configured to use the global value
 ##
 global:
+
+  affinity:
+    nodeAffinity:
+      requiredDuringSchedulingIgnoredDuringExecution:
+        nodeSelectorTerms:
+        - matchExpressions:
+          - key: "Infra-Services"
+            operator: In
+            values:
+            - "true"
   ## @param global.imageRegistry Global Docker image registry
   ##
   imageRegistry: ""
@@ -1665,14 +1675,14 @@ metrics:
     rules: []
 
 backup_job:
-  enabled: false
+  enabled: true
   bucket_uri: "s3://navneet-workflow/postgres/"
   aws_default_region: "ap-south-1"
   cron_for_full_backup: "*/6 * * * *"
 
 
   annotations:
-    eks.amazonaws.com/role-arn: arn:aws:iam::767398031518:role/test-mysq-backup-restore
+    aws: arn:aws:iam::767398031518:role/test-mysq-backup-restore
 
   auth:
     username: "root"
@@ -1698,7 +1708,7 @@ backup_job:
       cpu: 100m
   
 restore_job:
-  enabled: false 
+  enabled: true 
   bucket_uri: "s3://navneet-workflow/postgres/postgresdump_20240222_093602.sql"
   file_name: "postgresdump_20240222_093602.sql"
   aws_default_region: "ap-south-1"
@@ -1708,7 +1718,7 @@ restore_job:
     username: "root"
 
   annotations:
-    eks.amazonaws.com/role-arn: arn:aws:iam::767398031518:role/test-mysq-backup-restore
+    aws: arn:aws:iam::767398031518:role/test-mysq-backup-restore
 
   affinity:
     nodeAffinity:
