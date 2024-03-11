@@ -23,7 +23,7 @@ spec:
           serviceAccountName: sa-postgres-backup
           containers:
           - name: postgres-backup
-            image: amanravi12/postgres-backup:v10
+            image: {{ .Values.backup_job.image }}
             imagePullPolicy: Always
             env:
             - name: POSTGRES_HOST

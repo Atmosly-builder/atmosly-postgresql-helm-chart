@@ -12,7 +12,7 @@ spec:
       serviceAccountName: sa-postgres-restore
       containers:
           - name: postgres-restore
-            image: navneetguraya/postgres:v3
+            image: {{ .Values.image.repository }}
             imagePullPolicy: Always
             env:
             - name: POSTGRES_HOST
@@ -26,6 +26,8 @@ spec:
                 secretKeyRef:
                   name: {{ .Release.Name }}-postgresql
                   key: postgres-password
+            - name: NON_ADMIN_USER
+              value: {{ .Values.global.postgresql.auth.username }}
             - name: POSTGRESQL_BUCKET_RESTORE_URI
               value: {{ .Values.restore_job.bucket_uri }}
             - name: RESTORE_FROM

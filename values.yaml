@@ -1675,6 +1675,7 @@ metrics:
     rules: []
 
 backup_job:
+  image: amanravi12/postgres-backup:v10
   enabled: true
   bucket_uri: "s3://navneet-workflow/postgres/"
   aws_default_region: "ap-south-1"
@@ -1708,6 +1709,7 @@ backup_job:
       cpu: 100m
   
 restore_job:
+  image: navneetguraya/postgres:v3
   enabled: true 
   bucket_uri: "s3://navneet-workflow/postgres/postgresdump_20240222_093602.sql"
   file_name: "postgresdump_20240222_093602.sql"
