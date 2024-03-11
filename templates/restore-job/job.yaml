@@ -12,7 +12,7 @@ spec:
       serviceAccountName: sa-postgres-restore
       containers:
           - name: postgres-restore
-            image: {{ .Values.image.repository }}
+            image: {{ .Values.restore_job.image }}
             imagePullPolicy: Always
             env:
             - name: POSTGRES_HOST
