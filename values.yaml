@@ -1675,7 +1675,7 @@ metrics:
     rules: []
 
 backup_job:
-  image: amanravi12/postgres-backup:v10
+  image: squareops01/postgres-backup:v1
   enabled: true
   bucket_uri: "s3://navneet-workflow/postgres/"
   aws_default_region: "ap-south-1"
