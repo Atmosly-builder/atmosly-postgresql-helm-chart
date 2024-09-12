@@ -1,0 +1,63 @@
+---
+apiVersion: v1
+kind: ServiceAccount
+metadata:
+  name: pvc-cleanup-sa
+  namespace: {{ include "common.names.namespace" . }}
+
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: Role
+metadata:
+  name: pvc-cleanup-role
+  namespace: {{ include "common.names.namespace" . }}
+rules:
+- apiGroups: [""]
+  resources: ["persistentvolumeclaims"]
+  verbs: ["list", "delete"]
+
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: RoleBinding
+metadata:
+  name: pvc-cleanup-rolebinding
+  namespace: {{ include "common.names.namespace" . }}
+subjects:
+- kind: ServiceAccount
+  name: pvc-cleanup-sa
+  namespace: {{ include "common.names.namespace" . }}
+roleRef:
+  kind: Role
+  name: pvc-cleanup-role
+  apiGroup: rbac.authorization.k8s.io
+
+---
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: {{ include "common.names.fullname" . }}-delete-pvc
+  namespace: {{ include "common.names.namespace" . }}
+  annotations:
+    "helm.sh/hook": pre-delete
+    "helm.sh/hook-delete-policy": before-hook-creation
+spec:
+  template:
+    metadata:
+      name: {{ include "common.names.fullname" . }}-delete-pvc
+    spec:
+      serviceAccountName: pvc-cleanup-sa
+      containers:
+        - name: pvc-cleanup
+          image: bitnami/kubectl:latest
+          command: ["/bin/sh", "-c"]
+          args:
+            - |
+              kubectl get pvc -n {{ include "common.names.namespace" . }} -o custom-columns=NAME:.metadata.name,NAMESPACE:.metadata.namespace --no-headers | grep {{ include "common.names.fullname" . }} | while read -r name namespace; do
+                kubectl delete pvc "$name" -n "$namespace"
+              done
+          imagePullPolicy: Always
+          resources: {}
+          terminationMessagePath: /dev/termination-log
+          terminationMessagePolicy: File
+      restartPolicy: Never
+      terminationGracePeriodSeconds: 30
