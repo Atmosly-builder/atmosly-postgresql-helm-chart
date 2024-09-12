@@ -13,7 +13,48 @@ entries:
       licenses: Apache-2.0
     apiVersion: v2
     appVersion: 16.1.0
-    created: "2024-09-04T16:03:59.440926725+05:30"
+    created: "2024-09-12T16:46:43.425761364+05:30"
+    dependencies:
+    - name: common
+      repository: oci://registry-1.docker.io/bitnamicharts
+      tags:
+      - bitnami-common
+      version: 2.x.x
+    description: PostgreSQL (Postgres) is an open source object-relational database
+      known for reliability and data integrity. ACID-compliant, it supports foreign
+      keys, joins, views, triggers and stored procedures.
+    digest: 5c62bdd77f611ed42a1d8465ce9f1da87c0e4b74c807f1f1281bceb87ea8bf1e
+    home: https://bitnami.com
+    icon: https://bitnami.com/assets/stacks/postgresql/img/postgresql-stack-220x234.png
+    keywords:
+    - postgresql
+    - postgres
+    - database
+    - sql
+    - replication
+    - cluster
+    maintainers:
+    - name: VMware, Inc.
+      url: https://github.com/bitnami/charts
+    name: postgresql
+    sources:
+    - https://atmosly-builder.github.io/atmosly-postgresql-helm-chart/postgresql-13.3.0.tgz
+    urls:
+    - https://atmosly-builder.github.io/atmosly-postgresql-helm-chart/postgresql-13.3.5.tgz
+    version: 13.3.5
+  - annotations:
+      category: Database
+      images: |
+        - name: os-shell
+          image: docker.io/bitnami/os-shell:11-debian-11-r93
+        - name: postgres-exporter
+          image: docker.io/bitnami/postgres-exporter:0.15.0-debian-11-r5
+        - name: postgresql
+          image: docker.io/bitnami/postgresql:16.1.0-debian-11-r19
+      licenses: Apache-2.0
+    apiVersion: v2
+    appVersion: 16.1.0
+    created: "2024-09-12T16:46:43.421051764+05:30"
     dependencies:
     - name: common
       repository: oci://registry-1.docker.io/bitnamicharts
@@ -54,7 +95,7 @@ entries:
       licenses: Apache-2.0
     apiVersion: v2
     appVersion: 16.1.0
-    created: "2024-09-04T16:03:59.435667325+05:30"
+    created: "2024-09-12T16:46:43.417255764+05:30"
     dependencies:
     - name: common
       repository: oci://registry-1.docker.io/bitnamicharts
@@ -95,7 +136,7 @@ entries:
       licenses: Apache-2.0
     apiVersion: v2
     appVersion: 16.1.0
-    created: "2024-09-04T16:03:59.431078125+05:30"
+    created: "2024-09-12T16:46:43.410920665+05:30"
     dependencies:
     - name: common
       repository: oci://registry-1.docker.io/bitnamicharts
@@ -136,7 +177,7 @@ entries:
       licenses: Apache-2.0
     apiVersion: v2
     appVersion: 16.1.0
-    created: "2024-09-04T16:03:59.417427024+05:30"
+    created: "2024-09-12T16:46:43.399045965+05:30"
     dependencies:
     - name: common
       repository: oci://registry-1.docker.io/bitnamicharts
@@ -177,7 +218,7 @@ entries:
       licenses: Apache-2.0
     apiVersion: v2
     appVersion: 16.1.0
-    created: "2024-09-04T16:03:59.409186024+05:30"
+    created: "2024-09-12T16:46:43.389597266+05:30"
     dependencies:
     - name: common
       repository: oci://registry-1.docker.io/bitnamicharts
@@ -206,5 +247,4 @@ entries:
     urls:
     - https://atmosly-builder.github.io/atmosly-postgresql-helm-chart/postgresql-13.3.0.tgz
     version: 13.3.0
-generated: "2024-09-04T16:03:59.401716324+05:30"
-q
+generated: "2024-09-12T16:46:43.382844967+05:30"
