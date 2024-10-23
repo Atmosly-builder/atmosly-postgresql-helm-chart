@@ -38,9 +38,9 @@ global:
     ## @param global.postgresql.auth.secretKeys.replicationPasswordKey Name of key in existing secret to use for PostgreSQL credentials (overrides `auth.secretKeys.replicationPasswordKey`). Only used when `global.postgresql.auth.existingSecret` is set.
     ##
     auth:
-      postgresPassword: atmosly-testing
-      username: user-atmosly
-      password: atmosly
+      postgresPassword: "atmosly-testing"
+      username: "user-atmosly"
+      password: "atmosly"
       database: ""
       existingSecret: ""
       secretKeys:
@@ -146,7 +146,7 @@ auth:
   password: ""
   ## @param auth.database Name for a custom database to create
   ##
-  database: "test"
+  database: ""
   ## @param auth.replicationUsername Name of the replication user
   ##
   replicationUsername: repl_user
@@ -348,7 +348,12 @@ primary:
     ##      #!/bin/sh
     ##      echo "Do something."
     ##
-    scripts: {}
+    scripts:
+      grant_admin_permission.sh: |
+        #!/bin/bash
+        export PGPASSWORD="{{ .Values.global.postgresql.auth.postgresPassword }}"
+        psql -U postgres -c "ALTER USER {{ .Values.global.postgresql.auth.username }} WITH SUPERUSER;"
+
     ## @param primary.initdb.scriptsConfigMap ConfigMap with scripts to be run at first boot
     ## NOTE: This will override `primary.initdb.scripts`
     ##
@@ -1679,16 +1684,16 @@ metrics:
 backup_job:
   image: squareops01/postgres-backup:v1
   enabled: true
-  bucket_uri: "s3://navneet-workflow/postgres/"
-  aws_default_region: "ap-south-1"
-  cron_for_full_backup: "*/6 * * * *"
+  bucket_uri: "s3://mongodb-backups-atmosly"
+  aws_default_region: "us-east-1"
+  cron_for_full_backup: "*/1 * * * *"
 
 
   annotations:
-    aws: arn:aws:iam::767398031518:role/test-mysq-backup-restore
+    aws: arn:aws:iam::767398031518:role/mongo-backup
 
   auth:
-    username: "root"
+    username: "aman"
 
   bucket_provider_type: "s3"
 
@@ -1711,18 +1716,18 @@ backup_job:
       cpu: 100m
   
 restore_job:
-  image: navneetguraya/postgres:v3
+  image: amanravi12/postgres-restore:v1
   enabled: true 
-  bucket_uri: "s3://navneet-workflow/postgres/postgresdump_20240222_093602.sql"
-  file_name: "postgresdump_20240222_093602.sql"
-  aws_default_region: "ap-south-1"
+  bucket_uri: "s3://mongodb-backups-atmosly/sample_postgres_dump_with_db.sql" # provide only .sql file
+  file_name: "sample_postgres_dump_with_db.sql"
+  aws_default_region: "us-east-1"
   bucket_provider_type: "s3"
 
   auth:
     username: "root"
 
   annotations:
-    aws: arn:aws:iam::767398031518:role/test-mysq-backup-restore
+    aws: arn:aws:iam::767398031518:role/mongo-backup
 
   affinity:
     nodeAffinity:
