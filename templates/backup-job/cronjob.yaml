@@ -41,10 +41,6 @@ spec:
                     key: postgres-password
             - name: POSTGRES_BUCKET_URI
               value: {{ .Values.backup_job.bucket_uri }}
-            - name: BUCKET_PROVIDER
-              value:  {{ .Values.backup_job.bucket_provider_type }}
-            - name: AWS_DEFAULT_REGION
-              value: {{ .Values.backup_job.aws_default_region }}
             resources: 
               {{- toYaml .Values.backup_job.resources | nindent 14 }}
 {{- end }}
