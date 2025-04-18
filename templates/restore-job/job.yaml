@@ -16,7 +16,7 @@ spec:
             imagePullPolicy: Always
             env:
             - name: POSTGRES_HOST
-              value: {{ .Release.Name }}-postgresql-primary.{{ .Release.Namespace }}.svc.cluster.local
+              value: {{ .Release.Name }}-primary.{{ .Release.Namespace }}.svc.cluster.local
             - name: POSTGRES_PORT
               value: "5432"
             - name: POSTGRES_USER
@@ -24,7 +24,7 @@ spec:
             - name: PGPASSWORD
               valueFrom:
                 secretKeyRef:
-                  name: {{ .Release.Name }}-postgresql
+                  name: {{ .Release.Name }}
                   key: postgres-password
             - name: NON_ADMIN_USER
               value: {{ .Values.global.postgresql.auth.username }}
