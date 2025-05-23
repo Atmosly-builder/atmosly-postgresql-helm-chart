@@ -743,7 +743,7 @@ primary:
     enabled: true
     ## @param primary.persistentVolumeClaimRetentionPolicy.whenScaled Volume retention behavior when the replica count of the StatefulSet is reduced
     ##
-    whenScaled: Delete
+    whenScaled: Retain
     ## @param primary.persistentVolumeClaimRetentionPolicy.whenDeleted Volume retention behavior that applies when the StatefulSet is deleted
     ##
     whenDeleted: Delete
@@ -1125,7 +1125,7 @@ readReplicas:
     enabled: true
     ## @param readReplicas.persistentVolumeClaimRetentionPolicy.whenScaled Volume retention behavior when the replica count of the StatefulSet is reduced
     ##
-    whenScaled: Delete
+    whenScaled: Retain
     ## @param readReplicas.persistentVolumeClaimRetentionPolicy.whenDeleted Volume retention behavior that applies when the StatefulSet is deleted
     ##
     whenDeleted: Delete
