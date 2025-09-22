@@ -46,11 +46,11 @@ entries:
       category: Database
       images: |
         - name: os-shell
-          image: docker.io/bitnami/os-shell:11-debian-11-r93
+          image: docker.io/bitnamilegacy/os-shell:11-debian-11-r93
         - name: postgres-exporter
-          image: docker.io/bitnami/postgres-exporter:0.15.0-debian-11-r5
+          image: docker.io/bitnamilegacy/postgres-exporter:0.15.0-debian-11-r5
         - name: postgresql
-          image: docker.io/bitnami/postgresql:16.1.0-debian-11-r19
+          image: docker.io/bitnamilegacy/postgresql:16.1.0-debian-11-r19
       licenses: Apache-2.0
     apiVersion: v2
     appVersion: 16.1.0
@@ -87,11 +87,11 @@ entries:
       category: Database
       images: |
         - name: os-shell
-          image: docker.io/bitnami/os-shell:11-debian-11-r93
+          image: docker.io/bitnamilegacy/os-shell:11-debian-11-r93
         - name: postgres-exporter
-          image: docker.io/bitnami/postgres-exporter:0.15.0-debian-11-r5
+          image: docker.io/bitnamilegacy/postgres-exporter:0.15.0-debian-11-r5
         - name: postgresql
-          image: docker.io/bitnami/postgresql:16.1.0-debian-11-r19
+          image: docker.io/bitnamilegacy/postgresql:16.1.0-debian-11-r19
       licenses: Apache-2.0
     apiVersion: v2
     appVersion: 16.1.0
@@ -128,11 +128,11 @@ entries:
       category: Database
       images: |
         - name: os-shell
-          image: docker.io/bitnami/os-shell:11-debian-11-r93
+          image: docker.io/bitnamilegacy/os-shell:11-debian-11-r93
         - name: postgres-exporter
-          image: docker.io/bitnami/postgres-exporter:0.15.0-debian-11-r5
+          image: docker.io/bitnamilegacy/postgres-exporter:0.15.0-debian-11-r5
         - name: postgresql
-          image: docker.io/bitnami/postgresql:16.1.0-debian-11-r19
+          image: docker.io/bitnamilegacy/postgresql:16.1.0-debian-11-r19
       licenses: Apache-2.0
     apiVersion: v2
     appVersion: 16.1.0
@@ -169,11 +169,11 @@ entries:
       category: Database
       images: |
         - name: os-shell
-          image: docker.io/bitnami/os-shell:11-debian-11-r93
+          image: docker.io/bitnamilegacy/os-shell:11-debian-11-r93
         - name: postgres-exporter
-          image: docker.io/bitnami/postgres-exporter:0.15.0-debian-11-r5
+          image: docker.io/bitnamilegacy/postgres-exporter:0.15.0-debian-11-r5
         - name: postgresql
-          image: docker.io/bitnami/postgresql:16.1.0-debian-11-r19
+          image: docker.io/bitnamilegacy/postgresql:16.1.0-debian-11-r19
       licenses: Apache-2.0
     apiVersion: v2
     appVersion: 16.1.0
@@ -210,11 +210,11 @@ entries:
       category: Database
       images: |
         - name: os-shell
-          image: docker.io/bitnami/os-shell:11-debian-11-r93
+          image: docker.io/bitnamilegacy/os-shell:11-debian-11-r93
         - name: postgres-exporter
-          image: docker.io/bitnami/postgres-exporter:0.15.0-debian-11-r5
+          image: docker.io/bitnamilegacy/postgres-exporter:0.15.0-debian-11-r5
         - name: postgresql
-          image: docker.io/bitnami/postgresql:16.1.0-debian-11-r19
+          image: docker.io/bitnamilegacy/postgresql:16.1.0-debian-11-r19
       licenses: Apache-2.0
     apiVersion: v2
     appVersion: 16.1.0
@@ -251,11 +251,11 @@ entries:
       category: Database
       images: |
         - name: os-shell
-          image: docker.io/bitnami/os-shell:11-debian-11-r93
+          image: docker.io/bitnamilegacy/os-shell:11-debian-11-r93
         - name: postgres-exporter
-          image: docker.io/bitnami/postgres-exporter:0.15.0-debian-11-r5
+          image: docker.io/bitnamilegacy/postgres-exporter:0.15.0-debian-11-r5
         - name: postgresql
-          image: docker.io/bitnami/postgresql:16.1.0-debian-11-r19
+          image: docker.io/bitnamilegacy/postgresql:16.1.0-debian-11-r19
       licenses: Apache-2.0
     apiVersion: v2
     appVersion: 16.1.0
@@ -292,11 +292,11 @@ entries:
       category: Database
       images: |
         - name: os-shell
-          image: docker.io/bitnami/os-shell:11-debian-11-r93
+          image: docker.io/bitnamilegacy/os-shell:11-debian-11-r93
         - name: postgres-exporter
-          image: docker.io/bitnami/postgres-exporter:0.15.0-debian-11-r5
+          image: docker.io/bitnamilegacy/postgres-exporter:0.15.0-debian-11-r5
         - name: postgresql
-          image: docker.io/bitnami/postgresql:16.1.0-debian-11-r19
+          image: docker.io/bitnamilegacy/postgresql:16.1.0-debian-11-r19
       licenses: Apache-2.0
     apiVersion: v2
     appVersion: 16.1.0
@@ -333,11 +333,11 @@ entries:
       category: Database
       images: |
         - name: os-shell
-          image: docker.io/bitnami/os-shell:11-debian-11-r93
+          image: docker.io/bitnamilegacy/os-shell:11-debian-11-r93
         - name: postgres-exporter
-          image: docker.io/bitnami/postgres-exporter:0.15.0-debian-11-r5
+          image: docker.io/bitnamilegacy/postgres-exporter:0.15.0-debian-11-r5
         - name: postgresql
-          image: docker.io/bitnami/postgresql:16.1.0-debian-11-r19
+          image: docker.io/bitnamilegacy/postgresql:16.1.0-debian-11-r19
       licenses: Apache-2.0
     apiVersion: v2
     appVersion: 16.1.0
@@ -374,11 +374,11 @@ entries:
       category: Database
       images: |
         - name: os-shell
-          image: docker.io/bitnami/os-shell:11-debian-11-r93
+          image: docker.io/bitnamilegacy/os-shell:11-debian-11-r93
         - name: postgres-exporter
-          image: docker.io/bitnami/postgres-exporter:0.15.0-debian-11-r5
+          image: docker.io/bitnamilegacy/postgres-exporter:0.15.0-debian-11-r5
         - name: postgresql
-          image: docker.io/bitnami/postgresql:16.1.0-debian-11-r19
+          image: docker.io/bitnamilegacy/postgresql:16.1.0-debian-11-r19
       licenses: Apache-2.0
     apiVersion: v2
     appVersion: 16.1.0
@@ -415,11 +415,11 @@ entries:
       category: Database
       images: |
         - name: os-shell
-          image: docker.io/bitnami/os-shell:11-debian-11-r93
+          image: docker.io/bitnamilegacy/os-shell:11-debian-11-r93
         - name: postgres-exporter
-          image: docker.io/bitnami/postgres-exporter:0.15.0-debian-11-r5
+          image: docker.io/bitnamilegacy/postgres-exporter:0.15.0-debian-11-r5
         - name: postgresql
-          image: docker.io/bitnami/postgresql:16.1.0-debian-11-r19
+          image: docker.io/bitnamilegacy/postgresql:16.1.0-debian-11-r19
       licenses: Apache-2.0
     apiVersion: v2
     appVersion: 16.1.0
